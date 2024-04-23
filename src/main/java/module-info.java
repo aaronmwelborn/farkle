@@ -8,5 +8,5 @@ module com.game {
     exports com.game.controllers;
     exports com.game.models;
     exports com.game.utils;
-    exports com.game.view;
+//    exports com.game.view;
 }
