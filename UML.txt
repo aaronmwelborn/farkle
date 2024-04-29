@@ -1,0 +1,77 @@
++--------------------------------+              +-------------------------------+
+|         Application            |              |           MainGame            |
++--------------------------------+              +-------------------------------+
+|                                |              | - player: Player              |
+|                                |              | - playerId: String            |
++--------------------------------+              | - mainPanel: JPanel           |
+                                                 | - buttonContainer: Container |
+                                                 | - southContainer: Container  |
+                                                 | - diceButtons: JButton[]     |
+                                                 | - imageIcons: ImageIcon[]    |
+                                                 | - rollButton: JButton        |
+                                                 | - scoreButton: JButton       |
+                                                 | - stopButton: JButton        |
+                                                 | - currentScoreLabel: JLabel  |
+                                                 | - totalScoreLabel: JLabel    |
+                                                 | - currentRoundLabel: JLabel  |
+                                                 | - buttonState: int[]         |
+                                                 | - dieValue: int[]            |
+                                                 | - PLAYABLE_DIE: int          |
+                                                 | - SCORE_DIE: int             |
+                                                 | - LOCKED_DIE: int            |
+                                                 | - currentRound: int          |
+                                                 +-----------------------------------------+
++------------------+                           | + MainGame(player, endTurnButton)         |
+|       Die        |                           | + getComponent(): JPanel                  |
++------------------+                           | + getPlayerId(): String                   |
+| - numOfSides: int|                           | - actionPerformed(event): void            |
+| - faceValue: int |                           | - handleDiceButtonPressed(i): void        |
++--------------------------------------------+ | - handleStopButtonPressed(): void         |
+| + Die(numOfSides, faceValue)                | - handleScoreButtonPressed(): void         |
+| + getNumOfSides(): int                       | - handleRollButtonPressed(): void         |
+| + setNumOfSides(numOfSides): void           | - resetDice(): void                        |
+| + getFaceValue(): int                       | - isFarkle(valueCount): boolean            |
+| + setFaceValue(faceValue): void            | - isInvalidSelectedDie(valueCount): boolean |
+| + roll(): void                              | - getScoreFromDiceValues(valueCount): int  |
+| + rollDice(diceList: List)                 +---------------------------------------------+
++--------------------------------------------+
+|                      GUI                   |
++--------------------------------------------+
+| - playerList: List                         |
+| - playerTurnCount: int                     |
+| - initGame: InitGame                       |
+| - southContainer: Container                |
+| - frame: JFrame                            |
+| - cardsPanel: JPanel                       |
+| - cardLayout: CardLayout                   |
+| - submitButton: JButton                    |
+| - endTurnButton: JButton                   |
++--------------------------------------------+
+|                InitGame                    |
++--------------------------------------------+
+| - initPanel: JPanel                        |
+| - humanPlayerPanel: JPanel                 |
+| - computerPlayerPanel: JPanel              |
+| - humanPlayersCount: JTextField            |
+| - computerPlayersCount: JTextField         |
+| - difficultySelection: JComboBox           |
+| + getComponent(): JPanel                   |
+| + getHumanPlayersCount(): JTextField       |
+| + getComputerPlayersCount(): JTextField    |
+| + getDifficultySelection(): Difficulty     |
+| - actionPerformed(event): void             |
++--------------------------------------------+
+|                   Player                   |
++--------------------------------------------+
+| - name: String                             |
+| - currentScore: int                        |
+| - totalScore: int                          |
++--------------------------------------------+
+| + Player(name: String)                     | 
+| + getName(): String                        |
+| + setName(name: String): void              |
+| + getCurrentScore(): int                   |
+| + setCurrentScore(currentScore: int): void |
+| + getTotalScore(): int                     |
+| + setTotalScore(totalScore: int): void     |
++--------------------------------------------+
